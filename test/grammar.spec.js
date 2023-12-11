@@ -244,11 +244,14 @@ describe('SQL Grammar', function () {
         });
     });
 
-    describe('Case When', function () {
+    describe('misc', function () {
         it('parses case when statements', function () {
             expect(parse('select case when foo = \'a\' then a when foo = \'b\' then b else c end from table')).toMatchSnapshot();
+        });
+
+        it('parses nested AND', function() {
+            expect(parse("select * from a where id = 1 AND (id = 2 AND type = 'foo') AND (id = 3 AND type = 'bar')")).toMatchSnapshot();
         });
     });
 
 });
-

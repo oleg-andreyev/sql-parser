@@ -41,6 +41,6 @@
   },
   "scripts": {
     "compile": "node compile-parser.js && rollup --config rollup.config.js",
-    "test": "jest test/*.spec.js"
+    "test": "jest"
   }
 }

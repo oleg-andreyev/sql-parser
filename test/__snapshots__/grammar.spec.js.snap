@@ -1,10 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SQL Grammar Case When parses case when statements 1`] = `
-"SELECT CASE WHEN (\`foo\` = 'a') THEN \`a\` WHEN (\`foo\` = 'b') THEN \`b\` ELSE \`c\` END
-  FROM \`table\`"
-`;
-
 exports[`SQL Grammar Parameters parses query parameters 1`] = `
 "SELECT *
   FROM \`foo\`
@@ -305,6 +300,17 @@ exports[`SQL Grammar functions parses function with complex arguments 1`] = `
 "SELECT *
   FROM \`foo\`
   WHERE (\`bar\` < DATE_SUB(NOW(), INTERVAL 14 DAYS))"
+`;
+
+exports[`SQL Grammar misc parses case when statements 1`] = `
+"SELECT CASE WHEN (\`foo\` = 'a') THEN \`a\` WHEN (\`foo\` = 'b') THEN \`b\` ELSE \`c\` END
+  FROM \`table\`"
+`;
+
+exports[`SQL Grammar misc parses nested AND 1`] = `
+"SELECT *
+  FROM \`a\`
+  WHERE (((\`id\` = 1) AND ((\`id\` = 2) AND (\`type\` = 'foo'))) AND ((\`id\` = 3) AND (\`type\` = 'bar')))"
 `;
 
 exports[`SQL Grammar string quoting allows nesting different quote styles 1`] = `
